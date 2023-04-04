@@ -1,5 +1,6 @@
 package teslaSales;
 
+import java.time.YearMonth;
 public class Cars {
 //	replace 4 and 5 w/ yearMonth 
 	private String month;
@@ -7,24 +8,35 @@ public class Cars {
 	private int sales;
 	private String model;
 	private String monthAbb;
-	private String yearMonth;
+	private YearMonth yearMonth;
 	
 	
-	public Cars (int year, String month, int sales, String model, String monthAbb, String yearMonth) {
-		this.month = month;
-		this.year = year;
+	public Cars (int sales, String model, YearMonth YearMonth) {
+		this.month = YearMonth.getMonth().name();
+		this.year = YearMonth.getYear();
 		this.sales = sales;
 		this.model = model;
 		this.monthAbb = monthAbb !=null ? monthAbb : "";
+		this.yearMonth = YearMonth;
 		
 		
 		
 	}
 	
+	
+	
+	
+
+
+
 	@Override
 	public String toString() {
-		return "Cars [year=" + year + ", month=" + month + ", sales=" + sales + ",model=" + model + "]";
+		return "Cars [month=" + month + ", year=" + year + ", sales=" + sales + ", model=" + model + ", monthAbb="
+				+ monthAbb + ", yearMonth=" + yearMonth + "]";
 	}
+
+
+
 	public String getMonth() {
 		return month;
 	}
@@ -52,8 +64,12 @@ public class Cars {
 	public String getMonthAbb() {
 		return monthAbb.toUpperCase();
 	}
-	public String yearMonth() {
+	public YearMonth yearMonth() {
 		return yearMonth;
 	}
+	public void setYearMonth (YearMonth YearMonth) {
+		this.yearMonth = YearMonth;
+	}
+	
 	}
 	
